@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Karthk's Gallery </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Place this at the top of your <body> -->
+<h1 class="gallery-heading" style="margin-left: 550px; color: white;">MY GALLERY</h1>
+    <section>
+        <ul>
+            <li class="list active" data-filter="all">All</li>
+            <li class="list" data-filter="myself">My self</li>
+            <li class="list" data-filter="family">Family</li>
+            <li class="list" data-filter="cars">Cars</li>
+            <li class="list" data-filter="shoe">Shoe</li>
+            <li class="list" data-filter="movies">Movies</li>
+        </ul>
+        <div class="gallery">
+            <div class="itembox" data-item="myself"><img src="img/fly (7).jpeg"></div>
+            <div class="itembox" data-item="family"><img src="img/fly (1).jpeg"></div>
+            <div class="itembox" data-item="cars"><img src="https://robbreport.com/wp-content/uploads/2024/08/temerario01.jpg?w=800"></div>
+            <div class="itembox" data-item="shoe"><img src="https://dawntown.co.in/cdn/shop/files/nike-air-jordan-1-mid-alternate-bred-755351.jpg?v=1722520201"></div>
+            <div class="itembox" data-item="movies"><img src="https://upload.wikimedia.org/wikipedia/en/9/90/Animal_%282023_film%29_poster.jpg"></div>
+
+            <div class="itembox" data-item="myself"><img src="img/fly (4).JPG"></div>
+            <div class="itembox" data-item="family"><img src="img/fly (2).JPG"></div>
+            <div class="itembox" data-item="cars"><img src="https://imgd.aeplcdn.com/664x374/n/cw/ec/47278/m8-exterior-left-front-three-quarter.jpeg?isig=0&q=80"></div>
+            <div class="itembox" data-item="shoe"><img src="https://media.architecturaldigest.com/photos/57a11cbeb6c434ab487bc26b/16:9/w_1600,c_limit/nikes-senior-designer-explains-what-went-into-new-air-jordan-01.png"></div>
+            <div class="itembox" data-item="movies"><img src="https://sund-images.sunnxt.com/7397/1000x1500_TheBusinessmanTelugu_7397_f4d3afb4-f719-460b-976f-6cc5c2b90088.jpg"></div>
+
+            <div class="itembox" data-item="myself"><img src="img/my (1).JPG"></div>
+            <div class="itembox" data-item="family"><img src="img/fly (3).JPG"></div>
+            <div class="itembox" data-item="cars"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtFH7odIusD3QVn6Hxejnk2U5ZazyR6ty8JQ&s"></div>
+            <div class="itembox" data-item="shoe"><img src="https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/32385057/2025/5/30/50e98f26-5473-428e-a192-3b1b2212ef371748587727135-PUMA-Motorsport-Unisex-Colourblocked-Sneakers-37017485877265-1.jpg"></div>
+            <div class="itembox" data-item="movies"><img src="https://m.media-amazon.com/images/M/MV5BNTVmNDVhMDEtNDMyNy00NTY0LWJkNzEtY2E5ZTVlZDRmYWY3XkEyXkFqcGc@._V1_.jpg"></div>
+
+            <div class="itembox" data-item="myself"><img src="img/my (2).JPG"></div>
+            <div class="itembox" data-item="family"><img src="img/fly (5).JPG"></div>
+            <div class="itembox" data-item="cars"><img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Ferrari/SF90-Stradale/7858/1591619661237/front-left-side-47.jpg?impolicy=resize&imwidth=480"></div>
+            <div class="itembox" data-item="shoe"><img src="https://images-cdn.ubuy.co.in/66cd7f483f46d5106e394511-puma-mens-bmw-mms-a3rocat-lace-up.jpg"></div>
+            <div class="itembox" data-item="movies"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiO0O8SGWQn3O_j-qncv5rt-Lruar95lPHsQ&s"></div>
+
+            <div class="itembox" data-item="myself"><img src="img/my (3).JPG"></div>
+            <div class="itembox" data-item="family"><img src="img/fly (8).JPG"></div>
+            <div class="itembox" data-item="cars"><img src="https://imgd.aeplcdn.com/1920x1080/n/cw/ec/112947/wagon-r-exterior-right-front-three-quarter-4.jpeg?isig=0&q=80&q=80"></div>
+            <div class="itembox" data-item="shoe"><img src="https://rukminim2.flixcart.com/image/704/844/xif0q/shoe/q/s/n/-original-imah25hq9y8t3ukf.jpeg?q=90&crop=false"></div>
+            <div class="itembox" data-item="movies"><img src="https://resizing.flixster.com/Le9gp2687GGJfDHmq4rBe3OL75g=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzkxMWI1MDM5LTQ0ZjAtNDA0NS1iNDg5LWZlNGVhYjMyOTIwMy53ZWJw"></div>
+<!-- Place this at the end of your <body> -->
+<div class="modal-container hide" id="imgModal">
+  <span class="close" id="closeModal">&times;</span>
+  <img id="modalImg" src="" alt="Full Image">
+</div>
+
+        </div>
+    </section>
+    <script>
+        let list=document.querySelectorAll('.list');
+        let itembox=document.querySelectorAll('.itembox');
+
+        for(let i=0; i<list.length ; i++){
+            list[i].addEventListener('click',function(){
+                for(let j=0;j<list.length; j++){
+                    list[j].classList.remove('active');
+                }
+                this.classList.add('active');
+
+                let dataFilter = this.getAttribute('data-filter');
+
+                for(let k=0; k<itembox.length; k++){
+                    itembox[k].classList.remove('active');
+                    itembox[k].classList.add('hide');
+
+                    if(itembox[k].getAttribute('data-item') == dataFilter || dataFilter == 'all'){
+                        itembox[k].classList.remove('hide');
+                        itembox[k].classList.add('active');
+                    }
+                }
+            })
+        }
+        // ...existing code...
+document.querySelectorAll('.itembox img').forEach(img => {
+  img.addEventListener('click', function() {
+    document.getElementById('modalImg').src = this.src;
+    document.getElementById('imgModal').classList.remove('hide');
+  });
+});
+
+document.getElementById('closeModal').onclick = function() {
+  document.getElementById('imgModal').classList.add('hide');
+};
+
+document.getElementById('imgModal').onclick = function(e) {
+  if (e.target === this) this.classList.add('hide');
+};
+// ...existing code...
+    </script>
+    
+</body>
+</html>
